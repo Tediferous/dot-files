@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/tdorfeuille/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 
 # Set name of the theme to load --- if set to "random", it will
@@ -84,7 +84,7 @@ AGNOSTER_PROMPT_SEGMENTS[2]=prompt_kube
 [[ -s "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-export GOPATH=/Users/tdorfeuille/go
+export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH="$PATH:$GOBIN:$HOME/.rvm/bin"
 export EDITOR=vim
@@ -92,7 +92,6 @@ export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 export M2_HOME=/usr/local/Cellar/maven/3.5.4/libexec
 export M2=$M2_HOME/bin
-export JAVA_HOME=$(/usr/libexec/java_home)
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 #source ~/.promptKube.sh
@@ -122,16 +121,13 @@ alias ke="kubectl edit"
 alias kx="kubectl exec -it"
 alias kcg="kubectl config get-contexts"
 alias kcu="kubectl config use-context"
-export KUBECONFIG=~/.kube/configs/zord
+#export KUBECONFIG=~/.kube/configs/zord
 
 alias lla="ls -a -l"
 alias ll="ls -l"
 alias vi="vim"
 #alias vim= "/Applications/MacVim.app/Contents/bin/mvim"
 
-. $HOME/.asdf/asdf.sh
-
-. $HOME/.asdf/completions/asdf.bash
 #export NVM_DIR="$HOME/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -163,7 +159,7 @@ alias vi="vim"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/tdorfeuille/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/tdorfeuille/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '~/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '~/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/tdorfeuille/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/tdorfeuille/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '~/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '~/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
