@@ -11,6 +11,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="agnoster"
 
+USER=``
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -71,22 +72,38 @@ ZSH_THEME="agnoster"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  kube-ps1
 )
 
 source $ZSH/oh-my-zsh.sh
 prompt_kube() {
   prompt_segment 'white' 'black' "(🐉:$KUBE_PS1_CONTEXT/$KUBE_PS1_NAMESPACE)"
 }
-AGNOSTER_PROMPT_SEGMENTS[2]=prompt_kube
-#AGNOSTER_PROMPT_SEGMENTS+="$(kube_ps1)"
+AGNOSTER_PROMPT_SEGMENTS[1]=prompt_kube
+prompt_in_vim_shell(){
+  if (( ${+VIMRUNTIME} )); then
+    prompt_segment 'black' 'white' '🐢'
+  fi
+}
+
+build_prompt() {
+  RETVAL=$?
+  prompt_status
+  prompt_in_vim_shell
+  prompt_virtualenv
+  prompt_context
+  prompt_dir
+  prompt_git
+  prompt_hg
+  prompt_end
+}
+
 
 [[ -s "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
-export PATH="$PATH:$GOBIN:$HOME/.rvm/bin"
+export PATH="~/hashlink:$PATH:$GOBIN:$HOME/.rvm/bin"
 export EDITOR=vim
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx

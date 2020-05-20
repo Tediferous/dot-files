@@ -9,8 +9,8 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-
 Plugin 'vim-airline/vim-airline'
+Plugin 'tpope/vim-fugitive'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -69,7 +69,7 @@ let g:netrw_winsize = 20
 " Sets how many lines of history VIM has to remember
 set history=500
 
-set number
+set relativenumber
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
@@ -81,8 +81,14 @@ set autoread
 " like <leader>w saves the current file
 let mapleader = ","
 
-" Fast saving
-nmap <leader>w :w!<cr>
+
+" Teds leader commands
+nmap <leader>gs :G<cr>
+nmap <leader>gl :diffget //2<cr>
+nmap <leader>gr :diffget //3<cr>
+nmap <leader>w :wq<cr>
+nmap <leader>q :q!<cr>
+nmap <leader>x :qa!<cr>
 
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
@@ -174,6 +180,7 @@ syntax enable
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
+
 
 "try
 "    colorscheme desert
@@ -350,20 +357,20 @@ map <leader>sa zg
 map <leader>s? z=
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Misc
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Remove the Windows ^M - when the encodings gets messed up
-noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
-
-" Quickly open a buffer for scribble
-map <leader>q :e ~/buffer<cr>
-
-" Quickly open a markdown buffer for scribble
-map <leader>x :e ~/buffer.md<cr>
-
-" Toggle paste mode on and off
-map <leader>pp :setlocal paste!<cr>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" => Misc
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Remove the Windows ^M - when the encodings gets messed up
+"noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+"
+"" Quickly open a buffer for scribble
+"map <leader>q :e ~/buffer<cr>
+"
+"" Quickly open a markdown buffer for scribble
+"map <leader>x :e ~/buffer.md<cr>
+"
+"" Toggle paste mode on and off
+"map <leader>pp :setlocal paste!<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
