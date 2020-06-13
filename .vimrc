@@ -58,10 +58,10 @@ filetype plugin indent on    " required
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:netrw_liststyle = 3
-let g:netrw_banner = 0
-let g:netrw_browse_split = 3
-let g:netrw_winsize = 20
+" let g:netrw_liststyle = 4
+" let g:netrw_banner = 0
+" let g:netrw_browse_split = 3
+" let g:netrw_winsize = 20
 
 "set mouse=a
 
@@ -70,6 +70,7 @@ let g:netrw_winsize = 20
 set history=500
 
 set relativenumber
+set number
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
