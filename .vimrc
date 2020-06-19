@@ -11,6 +11,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-fugitive'
+Plugin 'szw/vim-tags'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -223,10 +224,12 @@ set expandtab
 " Be smart when using tabs ;)
 set smarttab
 
-" 1 tab == 4 spaces
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
+" Set tabs for these files
+autocmd FileType vim,markdown,json,terraform,hcl,tf,ruby,yaml,helm,haxe
+      \ setlocal softtabstop=2 |
+      \ setlocal shiftwidth=2  |
+      \ setlocal tabstop=2     |
+      \ setlocal expandtab
 
 " Linebreak on 500 characters
 set lbr
