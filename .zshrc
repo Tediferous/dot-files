@@ -143,6 +143,8 @@ alias kcu="kubectl config use-context"
 alias lla="ls -a -l"
 alias ll="ls -l"
 alias vi="vim"
+alias bat="batcat"
+alias fd="fdfind"
 #alias vim= "/Applications/MacVim.app/Contents/bin/mvim"
 
 #export NVM_DIR="$HOME/.nvm"

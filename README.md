@@ -7,3 +7,6 @@ My dot files
 
 ## For zsh
 https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH
+
+## Terminal Commands
+https://github.com/ibraheemdev/modern-unix
