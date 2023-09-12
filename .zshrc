@@ -142,10 +142,9 @@ alias kcu="kubectl config use-context"
 
 alias lla="ls -a -l"
 alias ll="ls -l"
-alias vi="vim"
+alias vi="nvim"
 alias bat="batcat"
 alias fd="fdfind"
-#alias vim= "/Applications/MacVim.app/Contents/bin/mvim"
 
 #export NVM_DIR="$HOME/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
