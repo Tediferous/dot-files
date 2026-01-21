@@ -1,14 +1,3 @@
 [user]
-	name = Ted Dorfeuille
 	email = teddorfeuille@gmail.com
-[pager]
-    diff = delta -s
-    log = delta
-    reflog = delta
-    show = delta
-
-[delta]
-    navigate = true
-
-[interactive]
-    diffFilter = delta --color-only
+	name = Ted Dorfeuille
