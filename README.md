@@ -1,12 +1,10 @@
 # dot-files
 My dot files
+Managed with [stow](https://www.gnu.org/software/stow/)
+[this video](https://youtu.be/y6XCebnB9gs?si=D0FmZwBh63NBugn4) discribes how stow works
 
 ## For vim
-- git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-- run :PluginInstall
-
-## For zsh
-https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH
+https://www.lazyvim.org/
 
 ## Terminal Commands
 https://github.com/ibraheemdev/modern-unix
