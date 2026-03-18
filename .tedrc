@@ -33,3 +33,6 @@ alias vis="vi -S Session.vim"
 alias bat="batcat"
 alias fd="fdfind"
 eval "$(zoxide init --cmd cd zsh)" # change cd to zoxide
+
+# add go bin to path
+export PATH=$PATH:$(go env GOPATH)/bin
