@@ -32,6 +32,7 @@ alias vi="nvim"
 alias vis="vi -S Session.vim"
 alias bat="batcat"
 alias fd="fdfind"
+alias hl="hyprlight"
 eval "$(zoxide init --cmd cd zsh)" # change cd to zoxide
 
 # add go bin to path
