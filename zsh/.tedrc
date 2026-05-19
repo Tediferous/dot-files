@@ -35,5 +35,15 @@ alias fd="fdfind"
 alias hl="hyprlight"
 eval "$(zoxide init --cmd cd zsh)" # change cd to zoxide
 
+gac(){
+    git add .
+    git commit -am "$(date)"
+}
+gacp(){
+    git add .
+    git commit -am "$(date)"
+    git push
+}
+
 # add go bin to path
 export PATH=$PATH:$(go env GOPATH)/bin
