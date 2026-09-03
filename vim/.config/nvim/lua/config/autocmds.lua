@@ -7,6 +7,8 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
+require("config.git_sync").setup()
+
 -- show file name at top of buffer
 local winbar_excluded_filetypes = {
   "neo-tree",
