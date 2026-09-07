@@ -44,6 +44,43 @@ return {
       sources = {
         default = { "lsp", "path", "snippets", "buffer", "emoji" },
         providers = {
+          lsp = {
+            name = "lsp",
+            -- markdown_oxide includes the heading's raw link formatting in wikilink
+            -- header completions when the heading itself is a markdown link or a
+            -- wikilink, e.g. inserting `header]]` as `[header](link)]]` or
+            -- `[[link]]]]` instead of plain `header]]`. Note the wikilink source
+            -- text edit does NOT include the leading `[[` (the user already typed
+            -- that), so match on `#` rather than assuming a `[[...]]` wrapper.
+            -- Strip it down to plain text wherever it shows up in the completion
+            -- item, scoped to markdown_oxide so other servers are untouched.
+            transform_items = function(_, items)
+              local function strip_header_link(text)
+                if not text then
+                  return text
+                end
+                -- `#[header](link)` -> `#header`
+                text = text:gsub("#%[(.-)%]%(.-%)", "#%1")
+                -- `#[[link]]` -> `#link`
+                text = text:gsub("#%[%[(.-)%]%]", "#%1")
+                return text
+              end
+
+              for _, item in ipairs(items) do
+                local client = item.client_id and vim.lsp.get_client_by_id(item.client_id)
+                if client and client.name == "markdown_oxide" then
+                  item.label = strip_header_link(item.label)
+                  item.insertText = strip_header_link(item.insertText)
+                  item.filterText = strip_header_link(item.filterText)
+                  if item.textEdit and item.textEdit.newText then
+                    item.textEdit.newText = strip_header_link(item.textEdit.newText)
+                  end
+                end
+              end
+
+              return items
+            end,
+          },
           emoji = {
             name = "emoji",
             module = "blink.compat.source",
